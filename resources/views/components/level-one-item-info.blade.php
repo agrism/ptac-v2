@@ -13,11 +13,11 @@
 
 <div>
 
-
-<span class="fa fa-info"
-      style="cursor: pointer;color: darkgreen"
-      onclick="const details = document.getElementById('details_<?= $data->id ?? $id ?>'); details.style.display = details.style.display === 'none' ? 'block' : 'none';">
-</span>
+    <div class="rounded-full w-5 h-5 flex items-center justify-center border border-red-500 mt-1 bg-red-500 hover:bg-white text-white hover:text-red-500 cursor-pointer"
+         onclick="const details = document.getElementById('details_<?= $data->id ?? $id ?>'); details.style.display = details.style.display === 'none' ? 'block' : 'none';"
+    >
+        <span class="fa fa-info text-xs"></span>
+    </div>
 <div id="details_<?= $data?->id ?? $id ?>" style="display: none;">
     <style>
         /* Basic styling for the JSON display */

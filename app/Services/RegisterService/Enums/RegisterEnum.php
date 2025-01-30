@@ -17,18 +17,31 @@ use App\Services\ElasticSearch\Registers\SuspiciousInternetAndCommunicationObjec
 use App\Services\ElasticSearch\Registers\TourismServiceProviderLicence;
 use App\Services\ElasticSearch\Registers\UnsafeAndNonCompliantGoods;
 use App\Services\ElasticSearch\Registers\WrittenFormCommitment;
+use App\Services\ElasticSearch\VaueObjects\Registers\BlackList\BlackListApiValueObject;
 use App\Services\ElasticSearch\VaueObjects\Registers\BlackList\BlackListValueObject;
+use App\Services\ElasticSearch\VaueObjects\Registers\CommissionDecision\CommissionDecisionApiValueObject;
 use App\Services\ElasticSearch\VaueObjects\Registers\CommissionDecision\CommissionDecisionValueObject;
+use App\Services\ElasticSearch\VaueObjects\Registers\ConsumerCreditProviderLicenceValueObject\ConsumerCreditProviderLicenceApiValueObject;
 use App\Services\ElasticSearch\VaueObjects\Registers\ConsumerCreditProviderLicenceValueObject\ConsumerCreditProviderLicenceValueObject;
+use App\Services\ElasticSearch\VaueObjects\Registers\CreditIntermediaryLicence\CreditIntermediaryLicenceApiValueObject;
 use App\Services\ElasticSearch\VaueObjects\Registers\CreditIntermediaryLicence\CreditIntermediaryLicenceValueObject;
+use App\Services\ElasticSearch\VaueObjects\Registers\DebtRecoveryProviderLicenceValueObject\DebtRecoveryProviderLicenceValueApiObject;
 use App\Services\ElasticSearch\VaueObjects\Registers\DebtRecoveryProviderLicenceValueObject\DebtRecoveryProviderLicenceValueObject;
+use App\Services\ElasticSearch\VaueObjects\Registers\GasCylinder\GasCylinderApiValueObject;
 use App\Services\ElasticSearch\VaueObjects\Registers\GasCylinder\GasCylinderValueObject;
+use App\Services\ElasticSearch\VaueObjects\Registers\OutOfCourtDisputeResolver\OutOfCourtDisputeResolverApiValueObject;
 use App\Services\ElasticSearch\VaueObjects\Registers\OutOfCourtDisputeResolver\OutOfCourtDisputeResolverValueObject;
+use App\Services\ElasticSearch\VaueObjects\Registers\Playground\PlaygroundApiValueObject;
 use App\Services\ElasticSearch\VaueObjects\Registers\Playground\PlaygroundValueObject;
+use App\Services\ElasticSearch\VaueObjects\Registers\PtacDecision\PtacDecisionApiValueObject;
 use App\Services\ElasticSearch\VaueObjects\Registers\PtacDecision\PtacDecisionValueObject;
+use App\Services\ElasticSearch\VaueObjects\Registers\SuspiciousInternetAndCommunicationObjectsDecision\SuspiciousInternetAndCommunicationObjectsDecisionApiValueObject;
 use App\Services\ElasticSearch\VaueObjects\Registers\SuspiciousInternetAndCommunicationObjectsDecision\SuspiciousInternetAndCommunicationObjectsDecisionValueObject;
+use App\Services\ElasticSearch\VaueObjects\Registers\TourismServiceProviderLicenceValueObject\TourismServiceProviderLicenceApiValueObject;
 use App\Services\ElasticSearch\VaueObjects\Registers\TourismServiceProviderLicenceValueObject\TourismServiceProviderLicenceValueObject;
+use App\Services\ElasticSearch\VaueObjects\Registers\UnsafeAndNonCompliantGoods\UnsafeAndNonCompliantGoodsApiValueObject;
 use App\Services\ElasticSearch\VaueObjects\Registers\UnsafeAndNonCompliantGoods\UnsafeAndNonCompliantGoodsValueObject;
+use App\Services\ElasticSearch\VaueObjects\Registers\WrittenFormCommitment\WrittenFormCommitmentApiValueObject;
 use App\Services\ElasticSearch\VaueObjects\Registers\WrittenFormCommitment\WrittenFormCommitmentValueObject;
 
 enum RegisterEnum: string
@@ -39,7 +52,7 @@ enum RegisterEnum: string
     case CREDIT_INTERMEDIARY_LICENCES = 'credit-intermediary-licences';
     case DEBT_RECOVERY_PROVIDER_LICENCES = 'debt-recovery-provider-licences';
     case GAS_CYLINDER = 'gas-cylinder';
-    case OUT_OF_COURT_DISPUTE_RESOLVER = 'ouy-of-court-dispute-resolver';
+    case OUT_OF_COURT_DISPUTE_RESOLVER = 'out-of-court-dispute-resolver';
     case PLAYGROUND = 'playground';
     case PTAC_DECISIONS = 'ptac-decisions';
     case SUSPICIOUS_INTERNET_AND_COMMUNICATION = 'suspicious-internet-and-communication';
@@ -217,5 +230,24 @@ enum RegisterEnum: string
 
         $obj->setElkRawData($data);
         return $obj;
+    }
+
+    public function getApiValueObject(array $data): object
+    {
+        return match ($this){
+            self::DEBT_RECOVERY_PROVIDER_LICENCES => $this->fillValueObject(DebtRecoveryProviderLicenceValueApiObject::class, $data),
+            self::CONSUMER_CREDIT_PROVIDER_LICENCES => $this->fillValueObject(ConsumerCreditProviderLicenceApiValueObject::class, $data),
+            self::CREDIT_INTERMEDIARY_LICENCES => $this->fillValueObject(CreditIntermediaryLicenceApiValueObject::class, $data),
+            self::TOURISM_SERVICE_PROVIDER_LICENCES => $this->fillValueObject(TourismServiceProviderLicenceApiValueObject::class, $data),
+            self::PLAYGROUND => $this->fillValueObject(PlaygroundApiValueObject::class, $data),
+            self::GAS_CYLINDER => $this->fillValueObject(GasCylinderApiValueObject::class, $data),
+            self::COMMISSION_DECISIONS => $this->fillValueObject(CommissionDecisionApiValueObject::class, $data),
+            self::UNSAFE_AND_NON_COMPLIANT_GOODS => $this->fillValueObject(UnsafeAndNonCompliantGoodsApiValueObject::class, $data),
+            self::WRITTEN_FORM_COMMITMENT => $this->fillValueObject(WrittenFormCommitmentApiValueObject::class, $data),
+            self::SUSPICIOUS_INTERNET_AND_COMMUNICATION => $this->fillValueObject(SuspiciousInternetAndCommunicationObjectsDecisionApiValueObject::class, $data),
+            self::OUT_OF_COURT_DISPUTE_RESOLVER => $this->fillValueObject(OutOfCourtDisputeResolverApiValueObject::class, $data),
+            self::BLACK_LIST => $this->fillValueObject(BlackListApiValueObject::class, $data),
+            self::PTAC_DECISIONS => $this->fillValueObject(PtacDecisionApiValueObject::class, $data),
+        };
     }
 }

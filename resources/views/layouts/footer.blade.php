@@ -28,8 +28,8 @@
         <div class="max-w-7xl mx-auto px-4 text-center text-gray-300 pb-1">
             <p class="mb-2">
                 <span>registri.ptac.gov.lv</span>
-                <span class="mx-2">|</span>
-                <span>{{request()->ip()}}</span>
+{{--                <span class="mx-2">|</span>--}}
+{{--                <span>{{request()->ip()}}</span>--}}
             </p>
             <p>© {{date('Y')}} Patērētāju tiesību aizsardzības centrs Visas tiesības aizsargātas.</p>
         </div>

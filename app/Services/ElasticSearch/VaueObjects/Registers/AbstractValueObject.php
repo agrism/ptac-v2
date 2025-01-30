@@ -48,6 +48,10 @@ abstract class AbstractValueObject
 
     public function getDate(?string $date, string $format = 'd.m.Y.'): ?string
     {
+        if(!$date){
+            return null;
+        }
+
         try {
             return Carbon::parse($date)->format($format);
         } catch (Exception) {

@@ -14,7 +14,7 @@ abstract class AbstractRegister
 
     private function getEnv(): EnvironmentEnum
     {
-        return EnvironmentEnum::tryFrom($_SERVER['ELASTIC_ENV'] ?? '');
+        return EnvironmentEnum::tryFrom(config('services.elastic-search.env'));
     }
     public function getPath(): string
     {

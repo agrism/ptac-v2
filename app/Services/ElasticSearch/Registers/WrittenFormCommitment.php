@@ -8,7 +8,7 @@ use App\Services\Filter\ValueObjects\FilterValueObject;
 class WrittenFormCommitment extends AbstractRegister implements RegisterInterface
 {
 
-    public const URL = 'written_from_commitment';
+    public const URL = 'written_form_commitment';
     public const API_URL = 'written-form-commitment'; // @TODO
 
     public function getUrl(): string

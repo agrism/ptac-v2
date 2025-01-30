@@ -1,16 +1,11 @@
 @php
-    $decisionNumber = $decisionNumber ?? null;
-    $decisionStatus = $decisionStatus ?? null;
-    $decisionDate = $decisionDate ?? null;
+    $url = $url ?? null;
 @endphp
 
 <div class="max-w-lg">
-    <div class="block max-w-lg shadow-md rounded-sm px-2 py-1 border border-gray-200 shadow-gray-400">
-        <div class="px-2 py-1">
-            {{$decisionNumber}}
-            <i class="status__icon font-weight-bold fas fa-pencil-ruler text-baseblue-600"></i>
-            {{$decisionStatus}}
+    @if($url) <a href="{{$url}}">@endif
+        <div class="block max-w-lg shadow-md rounded-sm px-2 py-1 border border-gray-200 shadow-gray-400 hover:dark:shadow-baseblue">
+            {{$slot}}
         </div>
-        <div class="px-2 py-1 text-gray-600">{{$decisionDate}}</div>
-    </div>
+    @if($url) </a> @endif
 </div>

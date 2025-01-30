@@ -1,4 +1,4 @@
-<header class="flex-grow  bg-white mb-4 px-4">
+<header class="flex-grow1  bg-white mb-4 px-4">
     <nav class="container mx-auto max-w-[1024px]">
         <!-- Desktop View -->
         <div class="hidden lg:flex items-stretch">
@@ -21,7 +21,7 @@
                             </label>
                             <div class="hidden peer-checked:block absolute top-full left-0 bg-gray-50 px-0 py-0 mt-0 w-96 shadow-md rounded-b">
                                 @foreach(\App\Services\RegisterService\Enums\RegisterEnum::sorted() as $register)
-                                    <a class="block py-1 px-2 hover:text-white hover:bg-baseblue text-black" href="{{route('register.show', $register->value)}}">{!! $register->getIconElement() !!} {{$register->title()}} </a>
+                                    <a class="block py-1 px-2 hover:text-white hover:bg-baseblue text-black" href="{{route('register.items', $register->value)}}">{!! $register->getIconElement() !!} {{$register->title()}} </a>
                                 @endforeach
                             </div>
                         </div>
@@ -75,7 +75,7 @@
                         </label>
                         <div class="hidden peer-checked:block absolute top-full left-0 bg-gray-50 px-0 py-0 mt-0 w-96 shadow-md rounded-b">
                             @foreach(\App\Services\RegisterService\Enums\RegisterEnum::sorted() as $register)
-                                <a class="block py-1 px-2 hover:text-white hover:bg-baseblue text-black" href="{{route('register.show', $register->value)}}">{!! $register->getIconElement() !!} {{$register->title()}} </a>
+                                <a class="block py-1 px-2 hover:text-white hover:bg-baseblue text-black" href="{{route('register.items', $register->value)}}">{!! $register->getIconElement() !!} {{$register->title()}} </a>
                             @endforeach
                         </div>
                     </div>

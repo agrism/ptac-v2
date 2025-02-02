@@ -11,20 +11,20 @@
 
         <x-level-two.block>
             <x-slot:title>Izdošanas / pieņemšanas datums:</x-slot>
-            <x-slot:value>{{$valueObject->getDate($valueObject->dvsDocumentRegistrationDate)}}</x-slot>
+            <x-slot:value><x-tooltip text="->dvsDocumentRegistrationDate">{{$valueObject->getDate($valueObject->dvsDocumentRegistrationDate)}}</x-tooltip></x-slot>
         </x-level-two.block>
 
         <x-level-two.block>
             <x-slot:title>Lēmums:</x-slot>
-            <x-slot:value>{{$valueObject->dvsDocumentNumber}}</x-slot>
+            <x-slot:value><x-tooltip text="->dvsDocumentNumber">{{$valueObject->dvsDocumentNumber}}</x-tooltip></x-slot>
         </x-level-two.block>
         <x-level-two.block>
             <x-slot:title>Pārkāpums:</x-slot>
-            <x-slot:value>{{$valueObject->violation}}</x-slot>
+            <x-slot:value><x-tooltip text="->violation">{{$valueObject->violation}}</x-tooltip></x-slot>
         </x-level-two.block>
         <x-level-two.block>
             <x-slot:title>Apraksts:</x-slot>
-            <x-slot:value>{{$valueObject->description}}</x-slot>
+            <x-slot:value><x-tooltip text="->description">{{$valueObject->description ?? '-'}}</x-tooltip></x-slot>
         </x-level-two.block>
 
     </x-level-two.container>

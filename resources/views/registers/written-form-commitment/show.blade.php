@@ -14,29 +14,32 @@
         </x-level-two.block>
         <x-level-two.block>
             <x-slot:title>Izdošanas / pieņemšanas datums:</x-slot>
-            <x-slot:value>{{$valueObject->getDate($valueObject->registrationDate)}}</x-slot>
+            <x-slot:value><x-tooltip text="->registrationDate">{{$valueObject->getDate($valueObject->registrationDate)}}</x-tooltip></x-slot>
         </x-level-two.block>
         <x-level-two.block>
             <x-slot:title>Organizācijas juridiskais nosaukums uz rakstveida apņemšanās izdošanas brīdi:</x-slot>
-            <x-slot:value>{{$valueObject->merchantName}}</x-slot>
+            <x-slot:value><x-tooltip text="->merchantName">{{$valueObject->merchantName}}</x-tooltip></x-slot>
         </x-level-two.block>
         <x-level-two.block>
             <x-slot:title>Organizācijas reģistrācijas numurs uz rakstveida apņemšanās izdošanas brīdi:</x-slot>
-            <x-slot:value>{{$valueObject->merchantRegistrationNumber}}</x-slot>
+            <x-slot:value><x-tooltip text="->merchantRegistrationNumber">{{$valueObject->merchantRegistrationNumber}}</x-tooltip></x-slot>
         </x-level-two.block>
         <x-level-two.block>
             <x-slot:title>Apņemšanās veids:</x-slot>
-            <x-slot:value>{{$valueObject->commitmentTypeName}}</x-slot>
+            <x-slot:value><x-tooltip text="->commitmentTypeName">{{$valueObject->commitmentTypeName}}</x-tooltip></x-slot>
         </x-level-two.block>
 
         <x-slot:companyCard>
             <x-registers.index-company
                 :companyName="$valueObject->merchantName"
+                companyNameTooltip="->merchantName"
                 :regNumber="$valueObject->merchantRegistrationNumber"
+                regNumberTooltip="->merchantRegistrationNumber"
                 :phone="null"
                 :web="null"
                 :email="null"
                 :address="$valueObject->merchantLegalAddress"
+                addressTooltip="->merchantLegalAddress"
             ></x-registers.index-company>
         </x-slot>
     </x-level-two.container>

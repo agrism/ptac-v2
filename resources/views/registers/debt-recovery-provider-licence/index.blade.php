@@ -34,11 +34,17 @@
                         <div class="lg:hidden font-bold text-lg py-2">Parāda atgūšanas pakalpojuma sniedzējs</div>
                         <x-registers.index-company
                             :companyName="$item->merchantName"
+                            companyNameTooltip="->merchantName"
                             :regNumber="$item->merchantPersonalCodeOrRegistrationNumber"
+                            regNumberTooltip="->merchantPersonalCodeOrRegistrationNumber"
                             :phone="$item->merchantPhoneNumber"
+                            phoneTooltip="->merchantPhoneNumber"
                             :web="$item->merchantWebAddress"
+                            webTooltip="->merchantWebAddress"
                             :email="$item->merchantEmail"
+                            emailTooltip="->merchantEmail"
                             :address="$item->merchantLegalAddress"
+                            addressTooltip="->merchantLegalAddress"
                         ></x-registers.index-company>
                     </div>
                     <div class="md:order-2 lg:order-2">
@@ -46,7 +52,7 @@
                         <x-level-one.info-block>
                             <x-level-one.info-block-item>
                                 <x-slot:label>Pakalpojumu sniegšanas vieta</x-slot:label>
-                                <x-slot:value>{{$item->merchantServiceAddress}}</x-slot:value>
+                                <x-slot:value><x-tooltip text="->merchantServiceAddress">{{$item->merchantServiceAddress}}</x-tooltip></x-slot:value>
                             </x-level-one.info-block-item>
                         </x-level-one.info-block>
 
@@ -57,12 +63,12 @@
                             :url="route('register.items.details', ['register' => $register->value, 'id'=> $item->id])"
                         >
                             <div class="px-2 py-1">
-                                {{$item->registrationNumber}} {{$item->licenceStatus}}
+                                <x-tooltip text="->registrationNumber">{{$item->registrationNumber}}</x-tooltip> <x-tooltip text="->licenceStatus">{{$item->licenceStatus}}</x-tooltip>
 
                                 <div>
-                                    {{$item->getDate($item->dateEffectiveFrom)}}
+                                    <x-tooltip text="->dateEffectiveFrom">{{$item->getDate($item->dateEffectiveFrom)}}</x-tooltip>
                                     @if($item->dateEffectiveUntil)
-                                    - {{$item->getDate($item->dateEffectiveUntil)}}
+                                    - <x-tooltip text="->dateEffectiveUntil">{{$item->getDate($item->dateEffectiveUntil)}}</x-tooltip>
                                     @endif
                                 </div>
                             </div>

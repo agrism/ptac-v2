@@ -34,11 +34,14 @@
                         <div class="lg:hidden font-bold text-lg py-2">Saistītie komersanti</div>
                         <x-registers.index-company
                             :companyName="$item->merchantName"
+                            companyNameTooltip="->merchantName"
                             :regNumber="$item->merchantRegistrationNumber"
+                            regNumberTooltip="->merchantRegistrationNumber"
                             :phone="null"
                             :web="null"
                             :email="null"
                             :address="$item->merchantLegalAddress"
+                            addressTooltip="->merchantLegalAddress"
                         ></x-registers.index-company>
                     </div>
                     <div class="md:order-2 lg:order-2">
@@ -46,19 +49,19 @@
                         <x-level-one.info-block>
                             <x-level-one.info-block-item>
                                 <x-slot:label>Organizācijas juridiskais nosaukums uz rakstveida apņemšanās izdošanas brīdi</x-slot:label>
-                                <x-slot:value><span class="bg-yellow-200">-</span></x-slot:value>
+                                <x-slot:value><x-tooltip text="->[500]"><span class="bg-yellow-200">-</span></x-tooltip></x-slot:value>
                             </x-level-one.info-block-item>
                             <x-level-one.info-block-item>
                                 <x-slot:label>Organizācijas reģistrācijas numurs uz rakstveida apņemšanās izdošanas brīdi</x-slot:label>
-                                <x-slot:value><span class="bg-yellow-200">-</span></x-slot:value>
+                                <x-slot:value><x-tooltip text="->[501]"><span class="bg-yellow-200">-</span></x-tooltip></x-slot:value>
                             </x-level-one.info-block-item>
                             <x-level-one.info-block-item>
                                 <x-slot:label>Apņemšanās veids</x-slot:label>
-                                <x-slot:value><span class="bg-yellow-200">-</span></x-slot:value>
+                                <x-slot:value><x-tooltip text="->[502]"><span class="bg-yellow-200">-</span></x-tooltip></x-slot:value>
                             </x-level-one.info-block-item>
                             <x-level-one.info-block-item>
                                 <x-slot:label>Pielikumi</x-slot:label>
-                                <x-slot:value><span class="bg-yellow-200">-</span></x-slot:value>
+                                <x-slot:value><x-tooltip text="->[503]"><span class="bg-yellow-200">-</span></x-tooltip></x-slot:value>
                             </x-level-one.info-block-item>
                         </x-level-one.info-block>
                     </div>
@@ -68,9 +71,9 @@
                             :url="route('register.items.details', ['register' => $register->value, 'id'=> $item->id])"
                         >
                             <div class="px-2 py-1">
-                                {{$item->dVSDocNumber}}
+                                <x-tooltip text="->dVSDocNumber">{{$item->dVSDocNumber}}</x-tooltip>
                                 <div>
-                                    {{$item->getDate($item->registrationDate)}}
+                                    <x-tooltip text="->registrationDate">{{$item->getDate($item->registrationDate)}}</x-tooltip>
                                 </div>
                             </div>
                         </x-registers.index-decision>

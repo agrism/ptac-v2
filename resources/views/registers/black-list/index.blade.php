@@ -34,11 +34,15 @@
                         <div class="lg:hidden font-bold text-lg py-2">Komersants</div>
                         <x-registers.index-company
                             :companyName="$item->merchantName"
+                            companyNameTooltip="->merchantName"
                             :regNumber="$item->merchantRegistrationNumber"
+                            regNumberTooltip="->merchantRegistrationNumber"
                             :phone="null"
                             :web="null"
                             :email="$item->merchantEmail"
+                            emailTooltip="->merchantEmail"
                             :address="$item->merchantLegalAddress"
+                            addressTooltip="->merchantLegalAddress"
                         ></x-registers.index-company>
                     </div>
                     <div class="md:order-2 lg:order-2">
@@ -46,11 +50,11 @@
                         <x-level-one.info-block>
                             <x-level-one.info-block-item>
                                 <x-slot:label></x-slot:label>
-                                <x-slot:value>{{$item->description}}</x-slot:value>
+                                <x-slot:value><x-tooltip text="->description">{{$item->description}}</x-tooltip></x-slot:value>
                             </x-level-one.info-block-item>
                             <x-level-one.info-block-item>
                                 <x-slot:label>Pielikumi</x-slot:label>
-                                <x-slot:value><span class="bg-yellow-200">mxYs26IP75aM6V2</span></x-slot:value>
+                                <x-slot:value><x-tooltip text="->[309]"><span class="bg-yellow-200">mxYs26IP75aM6V2</span></x-tooltip></x-slot:value>
                             </x-level-one.info-block-item>
                         </x-level-one.info-block>
                     </div>
@@ -59,11 +63,11 @@
                         <x-registers.index-decision
                             :url="route('register.items.details', ['register' => $register->value, 'id'=> $item->id])"
                         >
-                            <div class="px-2 py-1 text-gray-600">{{$item->getDate($item->decisionDate)}}</div>
+                            <div class="px-2 py-1 text-gray-600"><x-tooltip text="->decisionDate">{{$item->getDate($item->decisionDate)}}</x-tooltip></div>
                             <div class="px-2 py-1">
-                                {{$item->decisionNumber}}
+                                <x-tooltip text="->decisionNumber">{{$item->decisionNumber}}</x-tooltip>
                                 <i class="status__icon font-weight-bold fas fa-pencil-ruler text-baseblue-600"></i>
-                                {{$item->decisionStatus}}
+                                <x-tooltip text="->decisionStatus">{{$item->decisionStatus}}</x-tooltip>
                             </div>
                         </x-registers.index-decision>
                     </div>

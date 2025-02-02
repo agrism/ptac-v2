@@ -34,11 +34,17 @@
                         <div class="lg:hidden font-bold text-lg py-2">Pakalpojumu sniedzējs</div>
                         <x-registers.index-company
                             :companyName="$item->name"
+                            companyNameTooltip="item->name"
                             :regNumber="$item->registrationNumber"
+                            regNumberTooltip="->registrationNumber"
                             :phone="$item->phoneNumber"
+                            phoneTooltip="->phoneNumber"
                             :web="$item->webAddress"
+                            webTooltip="->webAddress"
                             :email="$item->email"
+                            emailTooltip="->email"
                             :address="$item->legalAddressDisplayName"
+                            addressTooltip="->legalAddressDisplayName"
                         ></x-registers.index-company>
                     </div>
                     <div class="md:order-2 lg:order-2">
@@ -46,27 +52,27 @@
                         <x-level-one.info-block>
                             <x-level-one.info-block-item>
                                 <x-slot:label>Darbības joma</x-slot:label>
-                                <x-slot:value><span class="bg-yellow-200">-</span></x-slot:value>
+                                <x-slot:value><x-tooltip text="->[600]"><span class="bg-yellow-200">-</span></x-tooltip></x-slot:value>
                             </x-level-one.info-block-item>
                             <x-level-one.info-block-item>
                                 <x-slot:label>Maksas pakalpojuma veids</x-slot:label>
-                                <x-slot:value><span class="bg-yellow-200">-</span></x-slot:value>
+                                <x-slot:value><x-tooltip text="->[601]"><span class="bg-yellow-200">-</span></x-tooltip></x-slot:value>
                             </x-level-one.info-block-item>
                             <x-level-one.info-block-item>
                                 <x-slot:label>Iesnieguma izskatīšanas valoda</x-slot:label>
-                                <x-slot:value><span class="bg-yellow-200">-</span></x-slot:value>
+                                <x-slot:value><x-tooltip text="->[602]"><span class="bg-yellow-200">-</span></x-tooltip></x-slot:value>
                             </x-level-one.info-block-item>
                             <x-level-one.info-block-item>
                                 <x-slot:label>Strīdu risināšanas veids</x-slot:label>
-                                <x-slot:value><span class="bg-yellow-200">-</span></x-slot:value>
+                                <x-slot:value><x-tooltip text="->[603]"><span class="bg-yellow-200">-</span></x-tooltip></x-slot:value>
                             </x-level-one.info-block-item>
                             <x-level-one.info-block-item>
                                 <x-slot:label>Ārpustiesas strīdu risināšanas raksturs</x-slot:label>
-                                <x-slot:value><span class="bg-yellow-200">-</span></x-slot:value>
+                                <x-slot:value><x-tooltip text="->[604]"><span class="bg-yellow-200">-</span></x-tooltip></x-slot:value>
                             </x-level-one.info-block-item>
                             <x-level-one.info-block-item>
                                 <x-slot:label>Strīdu izskatīšanas atteikuma gadījumi</x-slot:label>
-                                <x-slot:value><span class="bg-yellow-200">-</span></x-slot:value>
+                                <x-slot:value><x-tooltip text="->[605]"><span class="bg-yellow-200">-</span></x-tooltip></x-slot:value>
                             </x-level-one.info-block-item>
                         </x-level-one.info-block>
 

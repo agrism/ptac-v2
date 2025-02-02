@@ -34,11 +34,17 @@
                         <div class="lg:hidden font-bold text-lg py-2">Pakalpojumu sniedzējs</div>
                         <x-registers.index-company
                             :companyName="$item->legalEntityName"
+                            companyNameTooltip="->legalEntityName"
                             :regNumber="$item->registrationNumber"
+                            regNumberTooltip="->registrationNumber"
                             :phone="$item->legalEntityPhoneNumber"
+                            phoneTooltip="->legalEntityPhoneNumber"
                             :web="$item->legalEntityWebAddresses"
+                            webTooltip="->legalEntityWebAddresses"
                             :email="$item->legalEntityEmail"
+                            emailTooltip="->legalEntityEmail"
                             :address="$item->legalEntityLegalAddress"
+                            addressTooltip="->legalEntityLegalAddress"
                         ></x-registers.index-company>
                     </div>
                     <div class="md:order-2 lg:order-2">
@@ -46,11 +52,11 @@
                         <x-level-one.info-block>
                             <x-level-one.info-block-item>
                                 <x-slot:label>Kredīta veids</x-slot:label>
-                                <x-slot:value><span class="bg-yellow-200">TODO</span></x-slot:value>
+                                <x-slot:value><x-tooltip text="->[900]"><span class="bg-yellow-200">TODO</span></x-tooltip></x-slot:value>
                             </x-level-one.info-block-item>
                             <x-level-one.info-block-item>
                                 <x-slot:label>Pakalpojuma tirdzniecības tīmekļa vietne</x-slot:label>
-                                <x-slot:value> {{$item->legalEntityWebAddresses}}</x-slot:value>
+                                <x-slot:value><x-tooltip text="->legalEntityWebAddresses">{{$item->legalEntityWebAddresses}}</x-tooltip></x-slot:value>
                             </x-level-one.info-block-item>
                         </x-level-one.info-block>
                     </div>
@@ -60,10 +66,10 @@
                             :url="route('register.items.details', ['register' => $register->value, 'id'=> $item->id])"
                         >
                             <div class="px-2 py-1">
-                                {{$item->registrationNumber}} {{$item->licenceStatus}}
+                                <x-tooltip text="->registrationNumber">{{$item->registrationNumber}}</x-tooltip> <x-tooltip text="->licenceStatus">{{$item->licenceStatus}}</x-tooltip>
 
                                 <div>
-                                    {{$item->getDate($item->dateEffectiveFrom)}}
+                                    <x-tooltip text="->dateEffectiveFrom">{{$item->getDate($item->dateEffectiveFrom)}}</x-tooltip>
                                 </div>
                             </div>
                         </x-registers.index-decision>

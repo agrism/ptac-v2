@@ -34,11 +34,16 @@
                         <div class="lg:hidden font-bold text-lg py-2">Gāzes balonu tirgotājs</div>
                         <x-registers.index-company
                             :companyName="$item->ptacCaseTargetedPersonName"
+                            companyNameTooltip="->ptacCaseTargetedPersonName"
                             :regNumber="$item->ptacCaseTargetedPersonRegNrOrPersonalCode"
+                            regNumberTooltip="->ptacCaseTargetedPersonRegNrOrPersonalCode"
                             :phone="null"
+                            phoneTooltip="->[310]"
                             :web="null"
                             :email="null"
+                            emailTootip="->[311]"
                             :address="$item->ptacCaseTargetedPersonAddress"
+                            addressTootltip="->ptacCaseTargetedPersonAddress"
                         ></x-registers.index-company>
                     </div>
                     <div class="md:order-2 lg:order-2">
@@ -46,16 +51,16 @@
                         <x-level-one.info-block>
                             <x-level-one.info-block-item>
                                 <x-slot:label>Tirdzniecības vietas veids</x-slot:label>
-                                <x-slot:value>{{$item->isStationarySellingPlace ? 'Stacionāra' : 'Pārvietojama'}}</x-slot:value>
+                                <x-slot:value><x-tooltip text="->isStationarySellingPlace">{{$item->isStationarySellingPlace ? 'Stacionāra' : 'Pārvietojama'}}</x-tooltip></x-slot:value>
                             </x-level-one.info-block-item>
                             @if($item->isStationarySellingPlace)
                                 <x-level-one.info-block-item>
                                     <x-slot:label>Stacionārās tirdzniecības vietas adrese</x-slot:label>
-                                    <x-slot:value>{{$item->stationarySellingPlaceAddressName}}</x-slot:value>
+                                    <x-slot:value><x-tooltip text="->stationarySellingPlaceAddressName">{{$item->stationarySellingPlaceAddressName}}</x-tooltip></x-slot:value>
                                 </x-level-one.info-block-item>
                                 <x-level-one.info-block-item>
                                     <x-slot:label>Vietas nosaukums</x-slot:label>
-                                    <x-slot:value>{{$item->stationarySellingPlaceName}}</x-slot:value>
+                                    <x-slot:value><x-tooltip text="->stationarySellingPlaceName">{{$item->stationarySellingPlaceName}}</x-tooltip></x-slot:value>
                                 </x-level-one.info-block-item>
                             @endif
 
@@ -68,10 +73,10 @@
                             :url="route('register.items.details', ['register' => $register->value, 'id'=> $item->id])"
                         >
                             <div class="px-2 py-1">
-                                {{$item->registrationNumber}}
+                                <x-tooltip text="->registrationNumber">{{$item->registrationNumber}}</x-tooltip>
 
                                 <div>
-                                    {{$item->getDate($item->registrationDate)}}
+                                    <x-tooltip text="->registrationDate">{{$item->getDate($item->registrationDate)}}</x-tooltip>
                                 </div>
                             </div>
                         </x-registers.index-decision>

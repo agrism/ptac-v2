@@ -45,7 +45,7 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[72%_26%] gap-4 p-4 border-b hover:bg-gray-50 border-b-2 border-baseblue-400 lg:border-b-gray-200">
                     <div class="md:order-1 lg:order-1">
                         <div class="lg:hidden font-bold text-lg py-2">Informācija</div>
-                        <div>{{$item->decisionObjectName}}</div>
+                        <div><x-tooltip text="->decisionObjectName">{{$item->decisionObjectName}}</x-tooltip></div>
                     </div>
                     <div class="md:order-1 lg:order-3">
                         <div class="lg:hidden font-bold text-lg py-2">Reģistrācija</div>
@@ -53,9 +53,9 @@
                             :url="route('register.items.details', ['register' => $register->value, 'id'=> $item->id])"
                         >
                             <div class="px-2 py-1">
-                                {{$item->dvsDocumentNumber}}
+                                <x-tooltip text="->dvsDocumentNumber">{{$item->dvsDocumentNumber}}</x-tooltip>
                                 <div>
-                                    {{$item->getDate($item->dVSDocumentRegistrationDate)}}
+                                    <x-tooltip text="->dVSDocumentRegistrationDate">{{$item->getDate($item->dVSDocumentRegistrationDate)}}</x-tooltip>
                                 </div>
                             </div>
                         </x-registers.index-decision>

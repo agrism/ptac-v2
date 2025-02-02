@@ -34,11 +34,17 @@
                         <div class="lg:hidden font-bold text-lg py-2">Valdītājs</div>
                         <x-registers.index-company
                             :companyName="$item->posessorName"
+                            companyNameTooltip="->posessorName"
                             :regNumber="$item->posessorRegNrOrPersonalCode"
+                            regNumberTooltip="->posessorRegNrOrPersonalCode"
                             :phone="$item->playgroundResponsiblePhoneNumber"
+                            phoneTooltip="->playgroundResponsiblePhoneNumber"
                             :web="null"
+                            webTooltip="->[209]"
                             :email="$item->possessorEmail"
+                            email="->possessorEmail"
                             :address="$item->address"
+                            addressTooltip="->address"
                         ></x-registers.index-company>
                     </div>
                     <div class="md:order-2 lg:order-2">
@@ -46,31 +52,31 @@
                         <x-level-one.info-block>
                             <x-level-one.info-block-item>
                                 <x-slot:label>Nodokļu maksātāju reģistrācijas numurs</x-slot:label>
-                                <x-slot:value>{{$item->posessorRegNrOrPersonalCode}}</x-slot:value>
+                                <x-slot:value><x-tooltip text="->posessorRegNrOrPersonalCode">{{$item->posessorRegNrOrPersonalCode}}</x-tooltip></x-slot:value>
                             </x-level-one.info-block-item>
                             <x-level-one.info-block-item>
                                 <x-slot:label>Atbildīgās personas telefona numurs</x-slot:label>
-                                <x-slot:value>{{$item->playgroundResponsiblePhoneNumber}}</x-slot:value>
+                                <x-slot:value><x-tooltip text="->playgroundResponsiblePhoneNumber">{{$item->playgroundResponsiblePhoneNumber}}</x-tooltip></x-slot:value>
                             </x-level-one.info-block-item>
                             <x-level-one.info-block-item>
                                 <x-slot:label>Atbildīgās personas e-pasta adrese</x-slot:label>
-                                <x-slot:value>{{$item->playgroundResponsibleEmail}}</x-slot:value>
+                                <x-slot:value><x-tooltip text="->playgroundResponsibleEmail">{{$item->playgroundResponsibleEmail}}</x-tooltip></x-slot:value>
                             </x-level-one.info-block-item>
                             <x-level-one.info-block-item>
                                 <x-slot:label>Vadītāja e-pasts</x-slot:label>
-                                <x-slot:value>{{$item->playgroundResponsibleEmail}}</x-slot:value>
+                                <x-slot:value><x-tooltip text="->playgroundResponsibleEmail">{{$item->playgroundResponsibleEmail}}</x-tooltip></x-slot:value>
                             </x-level-one.info-block-item>
                             <x-level-one.info-block-item>
                                 <x-slot:label>Laukuma adrese</x-slot:label>
-                                <x-slot:value>{{$item->address}}</x-slot:value>
+                                <x-slot:value><x-tooltip text="->address">{{$item->address}}</x-tooltip></x-slot:value>
                             </x-level-one.info-block-item>
                             <x-level-one.info-block-item>
                                 <x-slot:label>Laukuma veids</x-slot:label>
-                                <x-slot:value>{{$item->isIndoor ? 'Iekštelpu' : 'Ārtelpu'}}</x-slot:value>
+                                <x-slot:value><x-tooltip text="->isIndoor">{{$item->isIndoor ? 'Iekštelpu' : 'Ārtelpu'}}</x-tooltip></x-slot:value>
                             </x-level-one.info-block-item>
                             <x-level-one.info-block-item>
                                 <x-slot:label>Atbildīgās personas vārds, uzvārds</x-slot:label>
-                                <x-slot:value>{{$item->playgroundResponsibleFullName}}</x-slot:value>
+                                <x-slot:value><x-tooltip text="->playgroundResponsibleFullName">{{$item->playgroundResponsibleFullName}}</x-tooltip></x-slot:value>
                             </x-level-one.info-block-item>
                         </x-level-one.info-block>
 
@@ -81,12 +87,12 @@
                             :url="route('register.items.details', ['register' => $register->value, 'id'=> $item->id])"
                         >
                             <div class="px-2 py-1">
-                                {{$item->registrationNumber}}
+                                <x-tooltip text="->registrationNumber">{{$item->registrationNumber}}</x-tooltip>
 
                                 <div>
-                                    {{$item->getDate($item->registrationDate)}}
+                                    <x-tooltip text="->registrationDate">{{$item->getDate($item->registrationDate)}}</x-tooltip>
                                     @if($item->dateExcluded)
-                                    - {{$item->getDate($item->dateExcluded)}}
+                                    - <x-tooltip text="->dateExcluded">{{$item->getDate($item->dateExcluded)}}</x-tooltip>
                                     @endif
                                 </div>
                             </div>

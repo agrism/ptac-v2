@@ -11,17 +11,17 @@
 
             <x-level-two.block>
                 <x-slot:title>Statuss:</x-slot>
-                <x-slot:value>{{$valueObject->decisionStatus}}</x-slot>
+                <x-slot:value><x-tooltip text="->decisionStatus">{{$valueObject->decisionStatus}}</x-tooltip></x-slot>
             </x-level-two.block>
 
             <x-level-two.block>
                 <x-slot:title>Izdošanas / pieņemšanas datums:</x-slot>
-                <x-slot:value>{{$valueObject->getDate($valueObject->publicationOrAcceptanceDate)}}</x-slot>
+                <x-slot:value><x-tooltip text="->publicationOrAcceptanceDate">{{$valueObject->getDate($valueObject->publicationOrAcceptanceDate)}}</x-tooltip></x-slot>
             </x-level-two.block>
 
             <x-level-two.block>
                 <x-slot:title>Preces / pakalpojuma grupa:</x-slot>
-                <x-slot:value><span class="bg-yellow-200">Pasūtīts</span></x-slot>
+                <x-slot:value><x-tooltip text="->[409]"><span class="bg-yellow-200">Pasūtīts</span></x-tooltip></x-slot>
             </x-level-two.block>
 
     </x-level-two.container>

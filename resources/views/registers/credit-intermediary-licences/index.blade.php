@@ -34,11 +34,17 @@
                         <div class="lg:hidden font-bold text-lg py-2">Pakalpojuma sniedzējs</div>
                         <x-registers.index-company
                             :companyName="$item->legalEntityName"
+                            companyNameTooltip="->legalEntityName"
                             :regNumber="$item->legalEntityRegistrationNumber"
+                            regNumberTooltip="->legalEntityRegistrationNumber"
                             :phone="$item->legalEntityPhoneNumber"
+                            phoneTooltip="->legalEntityPhoneNumber"
                             :web="$item->legalEntityWebAddresses"
+                            webTooltip="->legalEntityWebAddresses"
                             :email="$item->legalEntityEmail"
+                            emailTooltip="->legalEntityEmail"
                             :address="$item->legalEntityLegalAddressDisplayName"
+                            addressTooltip="->legalEntityLegalAddressDisplayName"
                         ></x-registers.index-company>
                     </div>
                     <div class="md:order-2 lg:order-2">
@@ -46,38 +52,36 @@
                         <x-level-one.info-block>
                             <x-level-one.info-block-item>
                                 <x-slot:label>Sniegtie pakalpojumi</x-slot:label>
-                                <x-slot:value>{{$item->typesOfLicensing}}</x-slot:value>
+                                <x-slot:value><x-tooltip text="->typesOfLicensing">{{$item->typesOfLicensing}}</x-tooltip></x-slot:value>
                             </x-level-one.info-block-item>
                             <x-level-one.info-block-item>
                                 <x-slot:label>Pakalpojumu sniegšanas vieta</x-slot:label>
-                                <x-slot:value>{{$item->legalEntityLegalAddressDisplayName}}</x-slot:value>
+                                <x-slot:value><x-tooltip text="->legalEntityLegalAddressDisplayName">{{$item->legalEntityLegalAddressDisplayName}}</x-tooltip></x-slot:value>
                             </x-level-one.info-block-item>
                             <x-level-one.info-block-item>
                                 <x-slot:label>Starpnieka reģistrācijas valsts</x-slot:label>
-                                <x-slot:value>{{$item->intermediaryCountryOfRegistrationName}}</x-slot:value>
+                                <x-slot:value><x-tooltip text="->intermediaryCountryOfRegistrationName">{{$item->intermediaryCountryOfRegistrationName}}</x-tooltip></x-slot:value>
                             </x-level-one.info-block-item>
                             <x-level-one.info-block-item>
                                 <x-slot:label>EEZ valsts, kurā tiek sniegti pakalpojumi</x-slot:label>
-                                <x-slot:value>{{$item->eEACountries}}</x-slot:value>
+                                <x-slot:value><x-tooltip text="->eEACountries">{{$item->eEACountries}}</x-tooltip></x-slot:value>
                             </x-level-one.info-block-item>
                             <x-level-one.info-block-item>
                                 <x-slot:label>Kredītstarpniecības veids</x-slot:label>
-                                <x-slot:value>{{$item->typeOfCreditIntermediationName}}</x-slot:value>
+                                <x-slot:value><x-tooltip text="->typeOfCreditIntermediationName">{{$item->typeOfCreditIntermediationName}}</x-tooltip></x-slot:value>
                             </x-level-one.info-block-item>
                             <x-level-one.info-block-item>
                                 <x-slot:label>Profesionālās darbības civiltiesiskās apdrošināšanas darbības teritorija</x-slot:label>
-                                <x-slot:value>{{$item->insuranceCountryOfOperationName}}</x-slot:value>
+                                <x-slot:value><x-tooltip text="->insuranceCountryOfOperationName">{{$item->insuranceCountryOfOperationName}}</x-tooltip></x-slot:value>
                             </x-level-one.info-block-item>
                             <x-level-one.info-block-item>
                                 <x-slot:label>Profesionālās darbības civiltiesiskās apdrošināšanas termiņš no</x-slot:label>
-                                <x-slot:value>{{$item->getDate($item->dateInsuranceValidFrom)}}</x-slot:value>
+                                <x-slot:value><x-tooltip text="->dateInsuranceValidFrom">{{$item->getDate($item->dateInsuranceValidFrom)}}</x-tooltip></x-slot:value>
                             </x-level-one.info-block-item>
                             <x-level-one.info-block-item>
                                 <x-slot:label>Profesionālās darbības civiltiesiskās apdrošināšanas termiņš līdz</x-slot:label>
-                                <x-slot:value>{{$item->getDate($item->dateInsuranceValidUntil)}}</x-slot:value>
+                                <x-slot:value><x-tooltip text="->dateInsuranceValidUntil">{{$item->getDate($item->dateInsuranceValidUntil)}}</x-tooltip></x-slot:value>
                             </x-level-one.info-block-item>
-
-
                         </x-level-one.info-block>
                     </div>
                     <div class="md:order-1 lg:order-3">
@@ -86,14 +90,14 @@
                             :url="route('register.items.details', ['register' => $register->value, 'id'=> $item->id])"
                         >
                             <div class="px-2 py-1">
-                                {{$item->registrationNumber}}
+                                <x-tooltip text="->registrationNumber">{{$item->registrationNumber}}</x-tooltip>
                                 <i class="status__icon font-weight-bold fas fa-pencil-ruler text-baseblue-600"></i>
-                                {{$item->licenseStatus}}
+                                <x-tooltip text="->licenseStatus">{{$item->licenseStatus}}</x-tooltip>
 
                                 <div>
-                                    {{$item->getDate($item->dateInsuranceValidFrom)}}
+                                    <x-tooltip text="->dateInsuranceValidFrom">{{$item->getDate($item->dateInsuranceValidFrom)}}</x-tooltip>
                                     @if($item->dateInsuranceValidUntil)
-                                    - {{$item->getDate($item->dateInsuranceValidUntil)}}
+                                    - <x-tooltip text="->dateInsuranceValidUntil">{{$item->getDate($item->dateInsuranceValidUntil)}}</x-tooltip>
                                     @endif
                                 </div>
                             </div>

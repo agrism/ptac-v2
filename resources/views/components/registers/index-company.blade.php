@@ -49,12 +49,12 @@
 
     <!-- Address with icon -->
     <div>
+        <x-tooltip :text="$addressTooltip">
         <i class="fa-solid fa-map-location-dot text-baseblue-600 text-base"></i>
         <span class="text-gray-700 text-base">
-        <x-tooltip :text="$addressTooltip">
             {{$address}}
-        </x-tooltip>
         </span>
+        </x-tooltip>
     </div>
 
     @if($registrationYear)

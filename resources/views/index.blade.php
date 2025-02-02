@@ -19,7 +19,7 @@
                     <a href="{{route('register.items', $register->value)}}" class="group transition-shadow hover:shadow-md hover:shadow-baseblue-700">
                         <div class="flex flex-col h-full bg-white border border-gray-200 hover:border-0">
                             <div class="relative">
-                                <img src="{{ url('storage/images/'.$register->getImage())}}" alt="Kreditēšana" class="w-full h-48 object-cover bg-gray-400 opacity-40 group-hover:opacity-80">
+                                <img src="{{ url('images/'.$register->getImage())}}" alt="Kreditēšana" class="w-full h-48 object-cover bg-gray-400 opacity-40 group-hover:opacity-80">
                                 <div class="absolute top-8 left-0 bg-baseblue text-white px-2 py-2 border-blue-baseblue">
                                     <div class="">
                                         <span class="text-lg leading-tight">{{$register->title()}}</span>

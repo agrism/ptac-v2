@@ -4,7 +4,7 @@
         <div class="hidden lg:flex items-stretch">
             <!-- Logo with blue border -->
             <a href="/" class="flex items-center p-2 border-l-[10px] border-[#227b8b] h111-[4.3125em] w111-60">
-                <img src="http://localhost:86/storage/images/logo.png" alt="Logo" class="w-full">
+                <img src="{{url('images/logo.png')}}" alt="Logo" class="w-full">
             </a>
 
             <!-- Navigation -->

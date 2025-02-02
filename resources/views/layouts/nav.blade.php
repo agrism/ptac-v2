@@ -50,7 +50,7 @@
 
             <div class="flex items-center justify-between border11-b-2 border-gray-200">
                 <a href="/" class="flex items-center pl-4 border-l-[10px] border-[#227b8b] h-[4.3125em] w-48">
-                    <img src="http://localhost:86/storage/images/logo.png" alt="Logo" class="w-full">
+                    <img src="{{url('images/logo.png')}}" alt="Logo" class="w-full">
                 </a>
                 <!-- Label acts as the menu button -->
 
